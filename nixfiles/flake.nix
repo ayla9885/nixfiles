@@ -4,10 +4,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-    # nixvim = {
-    #   url = "github:nix-community/nixvim";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
@@ -15,7 +11,7 @@
       system = "x86_64-linux";
       modules = [
         ./configuration.nix
-	./thinkpad.nix
+        ./thinkpad.nix
       ];
     };
     
@@ -23,7 +19,7 @@
       system = "x86_64-linux";
       modules = [
         ./configuration.nix
-	./pc.nix
+        ./pc.nix
       ];
     };
   };

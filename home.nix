@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nixvim, ... }:
 
 {
   
@@ -28,12 +28,13 @@
     feh # Image viewer
     fastfetch # System info fetcher
     rofi # Launcher
+    pavucontrol
 
     # Chat
     ripcord # Light-weight Discord client
 
     # Games
-    # steam
+    steam
 
     # Browsers
     firefox
@@ -66,6 +67,12 @@
       ";
     };
 
+    # Neovim config
+    "nvim" = {
+      source = ./programfiles/neovim;
+      target = ".config/nvim";
+      recursive = true;
+    };
   };
 
   programs.git = {
@@ -76,6 +83,7 @@
 
   programs.neovim = {
     enable = true;
+    defaultEditor = true;
   };
 
   programs.kitty = {
