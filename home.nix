@@ -15,7 +15,6 @@
   nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
-       
 
     # CLI tools
     btop # Resource monitoring
@@ -30,6 +29,7 @@
     fastfetch # System info fetcher
     rofi # Launcher
     pavucontrol
+    flatpak
 
     # Chat
     ripcord # Light-weight Discord client
@@ -67,17 +67,9 @@
     # FVWM config
     "fvwm" = {
       target = ".fvwm/config";
-      text = "
-      CursorStyle ROOT top_left_arrow
-      ";
+      source = ./programfiles/fvwm/config;
     };
 
-    # Neovim config
-    "nvim" = {
-      source = ./programfiles/neovim;
-      target = ".config/nvim";
-      recursive = true;
-    };
   };
 
   programs.git = {
@@ -86,30 +78,9 @@
     userEmail = "number1noah@gmail.com";
   };
 
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    plugins = with pkgs.vimPlugins; [
-      lazy-nvim
-    ];
-    # extraLuaConfig = ''
-    # vim.g.mapleader = " "
-      # require("lazy").setup({
-        # performance = {
-          # reset_packpath = false,
-          # rtp = {
-            # reset = false,
-          # }
-        # },
-        # dev = {
-          # path = "${pkgs.vimUtils.packDir config.home-manager.users.ayla.programs.neovim.finalPackage.passthru.packpathDirs}/pack/myNeovimPackages/start",
-        # },
-        # install = {
-          # missing = false,
-        # },
-      # })
-    # '';
-  };
+  # Neovim
+  imports = [ ./programfiles/neovim/neovim.nix ];
+  programs.neovim.enable = true;
 
   programs.kitty = {
     enable = true;

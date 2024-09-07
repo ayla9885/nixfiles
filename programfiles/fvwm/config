@@ -1,0 +1,38 @@
+#
+# This config file is organized as follows:
+# 
+# 1: Variables
+# 2: Keybinds
+# 3: Task Menu
+# 4: Options
+
+#               #
+### Variables ###
+#               #
+
+InfoStoreAdd terminal kitty
+InfoStoreAdd apprunner "rofi -show drun"
+InfoStoreAdd font ""
+
+
+#              #
+### Keybinds ###
+#              #
+
+#   Keyname   | Context | Modifiers |   Function    | Comment # 
+
+
+#               #
+### Task Menu ###
+#               #
+
+AddToFunc StartFuction Module FvwmButtons TaskBar
+DestroyModuleConfig TaskBar: *
+*TaskBar: Geometry 1080x50+0-0
+
+#             #
+### Options ###
+#             #
+
+EdgeScroll 100 100
+EdgeResistance 50
