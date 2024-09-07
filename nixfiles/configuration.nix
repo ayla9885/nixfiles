@@ -63,7 +63,14 @@
     fvwm3
 
     home-manager
+
+    # Games
+    steam
   ];
+
+  programs.steam = {
+    enable = true;
+  };
 
   # x11 and window manager
   services.xserver = {
