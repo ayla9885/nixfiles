@@ -64,8 +64,6 @@
 
     home-manager
 
-    # Games
-    steam
   ];
 
   programs.steam = {

@@ -8,9 +8,9 @@
   # Let home manager install and manage itself
   programs.home-manager.enable = true;
 
-  #
-  ### PACKAGES
-  #
+  #              #
+  ### PACKAGES ###
+  #              #
 
   nixpkgs.config.allowUnfree = true;
 
@@ -41,26 +41,22 @@
 
     # Terminals
     kitty
-    
-    # Games
-    steamcmd
-    steam-tui
 
     # Art
     gimp
   ];
 
-  #
-  ### ALIASES
-  #
+  #             #
+  ### ALIASES ###
+  #             #
   
   home.shellAliases = {
     
   };
 
-  #
-  ### CONFIGS
-  #
+  #             #
+  ### CONFIGS ###
+  #             #
 
   home.file = {
   
@@ -72,13 +68,14 @@
 
   };
 
+  # Git config
   programs.git = {
     enable = true;
     userName = "ayla9885";
     userEmail = "number1noah@gmail.com";
   };
 
-  # Neovim
+  # Neovim config
   imports = [ ./programfiles/neovim/neovim.nix ];
   programs.neovim.enable = true;
 
@@ -86,9 +83,9 @@
     enable = true;
   };
 
-  #
-  ### FONTS
-  #
+  #           #
+  ### FONTS ###
+  #           #
 
   fonts.fontconfig = {
     enable = true;
