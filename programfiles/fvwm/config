@@ -2,9 +2,11 @@
 # This config file is organized as follows:
 # 
 # 1: Variables
-# 2: Keybinds
-# 3: Task Menu
-# 4: Options
+# 2: Options
+# 3: Keybinds
+# 4: Functions
+# 5: Colorsets
+# 6: Task Menu
 
 #               #
 ### Variables ###
@@ -14,25 +16,79 @@ InfoStoreAdd terminal kitty
 InfoStoreAdd apprunner "rofi -show drun"
 InfoStoreAdd font ""
 
+#             #
+### Options ###
+#             #
+
+EdgeScroll 100 100 # How much to scroll
+EdgeThickness 1
+EdgeResistance 50 # How long until scroll
+DesktopConfiguration global
+DesktopName 0 Desk1
+DesktopName 1 Desk2
+DesktopName 2 Desk3
+DesktopName 3 Desk4
+
+#     Layout
+# +---+---+---+
+# |   |   |   |
+# +---+---+---+
+DesktopSize 3x1
+
+ClickTime 250
+MoveThreshold 3
+
 
 #              #
 ### Keybinds ###
 #              #
 
 #   Keyname   | Context | Modifiers |   Function    | Comment # 
+Mouse 1        A         M           Scroll reverse # Mouse 1 + Meta allows you to drag view around
 
+
+#               #
+### Functions ###
+#               #
+
+DestroyFunc StartFunction
+AddToFunc StartFunction
+ + I Module FvwmButtons Bar
+
+#               #
+### Colorsets ###
+#               #
+
+Colorset 15 fg #ffffff, bg #003c3c, hi #005c5c, sh #001c1c
+Colorset 16 fg #2d2d2d, bg #ffffff, hi #005c5c, sh #001c1c
 
 #               #
 ### Task Menu ###
 #               #
 
-AddToFunc StartFuction Module FvwmButtons TaskBar
-DestroyModuleConfig TaskBar: *
-*TaskBar: Geometry 1080x50+0-0
+DestroyModuleConfig Bar: *
+*Bar: Geometry $[vp.width]x50+0-0
+*Bar: Frame 0
+*Bar: Rows 1
+*Bar: Columns $[vp.width]
+*Bar: Colorset 14
 
-#             #
-### Options ###
-#             #
+# Menu Button
+*Bar: (100x1, Title "Start", Action(Mouse1) "Exec exec rofi -show drun", Frame 2)
 
-EdgeScroll 100 100
-EdgeResistance 50
+# Task bar
+*Bar: (1500x1, Left, Swallow Tasks 'Module FvwmIconMan Tasks')
+DestroyModuleConfig Tasks: *
+*Tasks: IconName Tasks
+*Tasks: UseWinList true
+*Tasks: Resolution global
+*Tasks: Tips needed
+
+# Task bar looks
+*Tasks: ButtonGeometry 120x50
+*Tasks: MaxButtonWidth 120
+*Tasks: ManagerGeometry 1x1
+
+
+#Styling
+Style Bar !Borders, !title, WindowListSkip, StaysOnTop, Sticky
