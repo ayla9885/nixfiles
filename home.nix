@@ -30,6 +30,7 @@
     rofi # Launcher
     pavucontrol
     flatpak
+    vlc # Media player
 
     # Chat
     ripcord # Light-weight Discord client
@@ -41,6 +42,7 @@
 
     # Terminals
     kitty
+    alacritty
 
     # Art
     gimp
