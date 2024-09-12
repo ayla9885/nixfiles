@@ -56,6 +56,10 @@
     
   };
 
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
+
   #             #
   ### CONFIGS ###
   #             #
