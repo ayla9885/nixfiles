@@ -81,6 +81,7 @@
     userEmail = "number1noah@gmail.com";
     extraConfig = {
       init.defaultBranch = "main";
+      core.editor = "nvim";
     };
   };
 
