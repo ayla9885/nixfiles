@@ -89,8 +89,14 @@
   imports = [ ./programfiles/neovim/neovim.nix ];
   programs.neovim.enable = true;
 
-  programs.kitty = {
+  # Starship prompt
+  programs.starship = {
     enable = true;
+  };
+
+  programs.bash ={
+    enable = true;
+    bashrcExtra = "eval '$(starship init bash)'";
   };
 
   #           #
