@@ -80,7 +80,7 @@
     userName = "ayla9885";
     userEmail = "number1noah@gmail.com";
     extraConfig = {
-      init.defaultBranch = main;
+      init.defaultBranch = "main";
     };
   };
 
