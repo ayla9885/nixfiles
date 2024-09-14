@@ -89,14 +89,29 @@
   imports = [ ./programfiles/neovim/neovim.nix ];
   programs.neovim.enable = true;
 
+  programs.fish = {
+    enable = true;
+  };
+  
   # Starship prompt
   programs.starship = {
     enable = true;
   };
 
-  programs.bash ={
+  # Alacritty terminal emulator
+  programs.alacritty = {
     enable = true;
-    bashrcExtra = "eval '$(starship init bash)'";
+    settings = {
+      window = {
+        resize_increments = true; # Resize in cell increments
+      };
+      font.normal = {
+        family = "BigBlueTermPlus Nerd Font Mono";
+        # family = "Monofur Nerd Font Mono";
+        # family = "JetBrainsMono Nerd Font Mono";
+        style = "Regular";
+      };
+    };
   };
 
   #           #
@@ -104,7 +119,7 @@
   #           #
 
   fonts.fontconfig = {
-    enable = true;
+    enable = false;
   };
 
   home.stateVersion = "24.05";
