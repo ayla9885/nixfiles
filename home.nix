@@ -119,7 +119,11 @@
   #           #
 
   fonts.fontconfig = {
-    enable = false;
+    enable = true;
+    defaultFonts = {
+      monospace = [ "BigBlueTermPlus Nerd Font Propo" ];
+      serif = [ "BigBlueTermPlus Nerd Font Propo" ];
+    };
   };
 
   home.stateVersion = "24.05";
