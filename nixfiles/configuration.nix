@@ -70,6 +70,8 @@
     enable = true;
   };
 
+  programs.fish.enable = true;
+
   # x11 and window manager
   services.xserver = {
     enable = true;
@@ -95,6 +97,7 @@
 
   fonts.packages = with pkgs; [
     dejavu_fonts
+    (nerdfonts.override { fonts = [ "BigBlueTerminal" "FiraCode" "JetBrainsMono" "Gohu" "MartianMono" "Monofur" ]; })
   ];
 
   # Enable the OpenSSH daemon.
