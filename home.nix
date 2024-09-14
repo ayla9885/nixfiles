@@ -33,8 +33,9 @@
     vlc # Media player
 
     # Chat
-    ripcord # Light-weight Discord client
     vesktop
+    pidgin # IRC client
+    abaddon # Non-electron Discord client
 
     # Browsers
     firefox
@@ -112,6 +113,14 @@
         style = "Regular";
       };
     };
+  };
+
+  # Pidgin
+  programs.pidgin = {
+    enable = true;
+    #plugins = with pkgs; [
+      # purple-discord
+    # ];
   };
 
   #           #
