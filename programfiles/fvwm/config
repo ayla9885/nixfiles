@@ -12,8 +12,8 @@
 ### Variables ###
 #               #
 
-InfoStoreAdd terminal kitty
-InfoStoreAdd apprunner "rofi -show drun"
+InfoStoreAdd terminal "alacritty"
+InfoStoreAdd launcher "rofi -show drun"
 InfoStoreAdd font ""
 
 #             #
@@ -43,8 +43,10 @@ MoveThreshold 3
 ### Keybinds ###
 #              #
 
-#   Keyname   | Context | Modifiers |   Function    | Comment # 
+#   Keyname   | Context | Modifiers |   Function
 Mouse 1        A         M           Scroll reverse # Mouse 1 + Meta allows you to drag view around
+Key D          A         M           Exec exec $[infostore.launcher]
+Key Enter      A         M           Exec exec $[infostore.terminal]
 
 
 #               #
@@ -74,7 +76,7 @@ DestroyModuleConfig Bar: *
 *Bar: Colorset 14
 
 # Menu Button
-*Bar: (100x1, Title "Start", Action(Mouse1) "Exec exec rofi -show drun", Frame 2)
+*Bar: (100x1, Title "Start", Action(Mouse1) "Exec exec $[infostore.launcher]", Frame 2)
 
 # Task bar
 *Bar: (1500x1, Left, Swallow Tasks 'Module FvwmIconMan Tasks')
