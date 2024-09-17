@@ -40,6 +40,7 @@
     # Browsers
     firefox
     palemoon-bin
+    librewolf
 
     # Terminals
     kitty
@@ -67,7 +68,7 @@
 
   home.file = {
   
-    # FVWM config
+    # FVWM 
     "fvwm" = {
       target = ".fvwm/config";
       source = ./programfiles/fvwm/config;
@@ -75,7 +76,7 @@
 
   };
 
-  # Git config
+  # Git 
   programs.git = {
     enable = true;
     userName = "ayla9885";
@@ -86,7 +87,7 @@
     };
   };
 
-  # Neovim config
+  # Neovim 
   imports = [ ./programfiles/neovim/neovim.nix ];
   programs.neovim.enable = true;
 
@@ -94,12 +95,12 @@
     enable = true;
   };
   
-  # Starship prompt
+  # Starship 
   programs.starship = {
     enable = true;
   };
 
-  # Alacritty terminal emulator
+  # Alacritty 
   programs.alacritty = {
     enable = true;
     settings = {
@@ -123,6 +124,16 @@
     # ];
   };
 
+  # Librewolf
+  programs.librewolf = {
+    enable = true;
+    settings = {
+      "privacy.donottrackheader.enabled" = true; # Sends websites a "do not track" request
+      "privacy.globalprivacycontrol.enabled" = true; # Asks websites to not sell my data
+      "privacy.clearOnShutdown_v2.historyFormDataAndDownloads" = false; # Preserve history after closing  
+    };
+  };
+
   #           #
   ### FONTS ###
   #           #
@@ -131,7 +142,7 @@
     enable = true;
     defaultFonts = {
       monospace = [ "BigBlueTermPlus Nerd Font Propo" ];
-      serif = [ "BigBlueTermPlus Nerd Font Propo" ];
+      # serif = [ "BigBlueTermPlus Nerd Font Propo" ];
     };
   };
 
