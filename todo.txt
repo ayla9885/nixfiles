@@ -1,0 +1,3 @@
+[X] Switch to encrypted dns through mullvad
+[ ] make windows snap to edges in fvwm
+[ ] give windows title buttons in fvwm
