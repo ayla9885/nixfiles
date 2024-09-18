@@ -131,6 +131,7 @@
       "privacy.donottrackheader.enabled" = true; # Sends websites a "do not track" request
       "privacy.globalprivacycontrol.enabled" = true; # Asks websites to not sell my data
       "privacy.clearOnShutdown_v2.historyFormDataAndDownloads" = false; # Preserve history after closing  
+      "layout.css.always_underline_links" = true;
     };
   };
 
