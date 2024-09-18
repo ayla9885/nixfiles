@@ -10,8 +10,18 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Enable networking
-  networking.networkmanager.enable = true;
-  
+  networking = {
+    networkmanager.enable = true;
+    networkmanager.dns = "systemd-resolved"; # Prevent networkmanager from overriding dns server
+  };
+  services.resolved = {
+    enable = true;
+    extraConfig = "DNS=194.242.2.3#adblock.dns.mullvad.net";
+    dnsovertls = "true";
+    fallbackDns = [ "194.242.2.2#dns.mullvad.net" ];
+  };
+
+
   # Enable sound
   hardware.pulseaudio.enable = true;
   
