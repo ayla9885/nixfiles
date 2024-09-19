@@ -56,6 +56,7 @@ Key Enter      A         M           Exec exec $[infostore.terminal]
 DestroyFunc StartFunction
 AddToFunc StartFunction
  + I Module FvwmButtons Bar
+ + I Exec exec xrandr --rate 165.00
 
 #               #
 ### Colorsets ###
