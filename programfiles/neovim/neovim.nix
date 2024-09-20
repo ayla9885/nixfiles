@@ -53,7 +53,7 @@
       -- Cursor
       o.cursorline = true
       o.scrolloff = 20
-      o.wrap = false
+      o.wrap = true
 
       -- Window
       o.splitright = true
