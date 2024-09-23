@@ -42,6 +42,9 @@
     palemoon-bin
     librewolf
 
+    # Music
+    sonata
+
     # Terminals
     kitty
     alacritty
