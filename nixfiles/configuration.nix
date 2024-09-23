@@ -5,6 +5,9 @@
 { config, pkgs, ... }:
 
 {
+  
+  # Set config directory
+  nix.nixPath = [ "nixos-config=/home/ayla/.config/home-manager/nixfiles/flake.nix" ];
 
   # Enable nix flakes and accompanying nix command line tool
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -21,10 +24,24 @@
     fallbackDns = [ "194.242.2.2#dns.mullvad.net" ];
   };
 
-
   # Enable sound
-  hardware.pulseaudio.enable = true;
-  
+  hardware.pulseaudio = {
+    enable = true;
+    extraConfig = "load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1";
+  };
+
+  # Enable mpd
+  services.mpd = {
+    enable = true;
+    musicDirectory = "/home/ayla/Music";
+    extraConfig = ''
+      audio_output {
+        type "pulse"
+        name "Pulseaudio"
+        server "127.0.0.1"
+      }
+    '';
+  };
 
   # Set your time zone.
   time.timeZone = "America/Chicago";
@@ -76,8 +93,21 @@
 
   ];
 
+  # services.flatpak.enable = true;
+
+  #xdg.portal.enable = true;
+
   programs.steam = {
     enable = true;
+    gamescopeSession.enable = true; # To enable, add "gamescope %command%" to launch options
+  };
+
+  programs.gamemode.enable = true; # To enable, add "gamemoderun %command%" to launch options
+
+
+  programs.alvr = {
+    enable = true;
+    openFirewall = true;
   };
 
   programs.fish.enable = true;
@@ -100,6 +130,14 @@
       accelProfile = "flat";
     };
   };
+
+  # Enable OpenGL
+  hardware.opengl = {
+    enable = true;
+  };
+
+  # Enable drivers
+  services.xserver.videoDrivers = ["amdgpu"];
 
   #
   ### FONTS
