@@ -12,7 +12,7 @@
 
       modifier = "Mod4";
 
-      defaultWorkspace = "workspace number 1"
+      defaultWorkspace = "workspace number 1";
 
       # Keyboard settings
       input."*" = {
