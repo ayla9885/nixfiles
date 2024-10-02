@@ -10,6 +10,7 @@
     efiSupport = true;
     device = "nodev";
     useOSProber = true;
+    default = "saved";
   };
   boot.loader.efi.canTouchEfiVariables = true;
 

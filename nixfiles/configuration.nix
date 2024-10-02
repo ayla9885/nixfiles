@@ -6,9 +6,6 @@
 
 {
   
-  # Set config directory
-  nix.nixPath = [ "nixos-config=/home/ayla/.config/home-manager/nixfiles/flake.nix" ];
-
   # Enable nix flakes and accompanying nix command line tool
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -85,9 +82,11 @@
     # cli utils
     neovim 
     git
+    greetd.tuigreet
 
     # window managers
     fvwm3
+    sway
 
     home-manager
 
@@ -112,12 +111,30 @@
 
   programs.fish.enable = true;
 
+  # ========THIS IS A MESS VV=========
+
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
+      };
+    };
+  };
+
+  programs.waybar.enable = true;
+  programs.sway.enable = true;
+  #needed to configure sway with home-manager
+  security.polkit.enable = true;
+
   # x11 and window manager
   services.xserver = {
     enable = true;
     windowManager.fvwm3.enable = true;
     autorun = true;
   };
+
+  # ========THIS IS A MESS ^^=========
 
   # mouse/touchpad
   services.libinput = {
