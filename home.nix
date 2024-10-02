@@ -51,6 +51,10 @@
 
     # Art
     gimp
+    krita
+
+    # Interpreters
+    python3Full
   ];
 
   #             #
@@ -68,6 +72,12 @@
   #             #
   ### CONFIGS ###
   #             #
+  
+  # Imported configs
+  imports = [ 
+    ./programfiles/neovim/neovim.nix
+    ./programfiles/sway/sway.nix 
+    ];
 
   home.file = {
   
@@ -89,10 +99,6 @@
       core.editor = "nvim";
     };
   };
-
-  # Neovim 
-  imports = [ ./programfiles/neovim/neovim.nix ];
-  programs.neovim.enable = true;
 
   programs.fish = {
     enable = true;
