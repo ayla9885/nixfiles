@@ -71,7 +71,10 @@
     description = "Ayla";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
+    useDefaultShell = true;
   };
+  
+  users.defaultUserShell = pkgs.fish;
   
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
