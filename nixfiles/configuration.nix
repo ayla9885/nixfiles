@@ -95,7 +95,8 @@
 
   ];
 
-  # services.flatpak.enable = true;
+  #TODO: Find a way to declaratively install flatpaks
+  services.flatpak.enable = true;
 
   #xdg.portal.enable = true;
 
