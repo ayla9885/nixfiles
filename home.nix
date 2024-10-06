@@ -53,8 +53,9 @@
     gimp
     krita
 
-    # Interpreters
+    # Interpreters / Compilers
     python3Full
+    clang
   ];
 
   #             #
