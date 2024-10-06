@@ -19,6 +19,12 @@
         '';
       }
 
+      {
+        plugin = nvim-dap;
+        config = ''
+        '';
+      }
+
       # Git integration for buffers
       {
         plugin = gitsigns-nvim;
@@ -29,7 +35,6 @@
       {
         plugin = indent-blankline-nvim;
         config = ''
-
         '';
       }
     ];
