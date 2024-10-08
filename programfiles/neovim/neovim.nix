@@ -11,14 +11,16 @@
       # Colorschemes
       catppuccin-nvim
 
-      # Treesitter for syntax highlighting
       {
-        plugin = nvim-treesitter.withAllGrammars;
+        plugin = mini-nvim;
         config = ''
-          packadd! nvim-treesitter
+          lua << END
+            require("mini.pairs").setup()
+          END
         '';
       }
 
+      # Debug
       {
         plugin = nvim-dap;
         config = ''
@@ -29,14 +31,38 @@
       {
         plugin = gitsigns-nvim;
         config = ''
+          lua << END
+            require("gitsigns").setup()
+          END
         '';
       }
 
       {
         plugin = indent-blankline-nvim;
         config = ''
+          lua << END
+            require("ibl").setup()
+          END
         '';
       }
+
+      # Treesitter for syntax highlighting
+      {
+        plugin = nvim-treesitter;
+        config = ''
+          packadd! nvim-treesitter
+          lua << END
+            require'nvim-treesitter.configs'.setup {
+              highlight = {
+                enable = true,
+                disable = {},
+              },
+            }
+          END
+        '';
+      }
+      nvim-treesitter.withAllGrammars
+
     ];
 
     # Neovim options
