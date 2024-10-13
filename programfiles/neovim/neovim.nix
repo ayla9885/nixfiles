@@ -11,6 +11,7 @@
       # Colorschemes
       catppuccin-nvim
 
+      # mini pairs for auto placing of brackets
       {
         plugin = mini-nvim;
         config = ''
@@ -20,7 +21,7 @@
         '';
       }
 
-      # Debug
+      # Debug protocol
       {
         plugin = nvim-dap;
         config = ''
@@ -37,16 +38,76 @@
         '';
       }
 
+      # IBL for indent lines
       {
         plugin = indent-blankline-nvim;
         config = ''
           lua << END
-            require("ibl").setup()
+            require("ibl").setup { 
+          scope = { enabled = false }, 
+          }
           END
         '';
       }
 
-      # Treesitter for syntax highlighting
+      # Status bar
+      {
+        plugin = lualine-nvim;
+        config = ''
+          lua << END
+            require("lualine").setup()
+          END
+        '';
+      }
+
+      # Startup screen
+      {
+        plugin = alpha-nvim;
+        config = ''
+        lua << END
+          require("alpha").setup(require'alpha.themes.startify'.config)
+        END
+        '';
+      }
+
+      # Better terminal
+      #{
+      #  plugin = toggleterm-nvim;
+      #  config = ''
+      #    lua << END
+      #      require("toggleterm").setup {
+      #        open_mapping = [[<leader>t]],
+      #        direction = float,
+      #        hide_numbers = true,
+      #        autochdir = true, -- Does the terminal follow the current working directory of neovim?
+      #        insert_mappings = false, -- Can the terminal be opened in insert mode?
+      #        terminal_mappings = false, -- Can the terminal be opened in terminal mode?
+      #      }
+      #    END
+      #  '';
+      #}
+
+      # File icons
+      {
+        plugin = nvim-web-devicons;
+        config = ''
+          lua << END
+            require("nvim-web-devicons").setup()
+          END
+        '';
+      }
+
+      # File explorer
+      {
+        plugin = nvim-tree-lua;
+        config = ''
+          lua << END
+            require("nvim-tree").setup()
+          END
+        '';
+      }
+
+      # Treesitter for better syntax highlighting
       {
         plugin = nvim-treesitter;
         config = ''
@@ -68,6 +129,7 @@
     # Neovim options
     extraLuaConfig = ''
       o = vim.opt
+      k = vim.keymap
 
       -- Set colorsceme
       vim.cmd[[colorscheme catppuccin-frappe]]
@@ -96,6 +158,20 @@
       o.showmatch = true -- Jumps cursor to corresponding bracket
       o.clipboard = "unnamedplus"
       o.title = true
+
+      -- Keybinds
+      vim.g.mapleader = " " -- Leader key
+      k.set("n", " ", "<Nop>")
+
+      k.set("n", "<leader>e", ":NvimTreeFindFileToggle<CR>") -- Open nvim-tree with leader + e
+
+      -- ctrl + hjkl to move through windows
+      k.set("n", "<C-h>", "<C-w>h")
+      k.set("n", "<C-j>", "<C-w>j")
+      k.set("n", "<C-k>", "<C-w>k")
+      k.set("n", "<C-l>", "<C-w>l")
+      
+      
     '';
 
   };
