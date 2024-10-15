@@ -86,6 +86,7 @@
     neovim 
     git
     greetd.tuigreet
+    lsd # Better ls
 
     # window managers
     fvwm3
@@ -166,7 +167,7 @@
 
   fonts.packages = with pkgs; [
     dejavu_fonts
-    (nerdfonts.override { fonts = [ "BigBlueTerminal" "FiraCode" "JetBrainsMono" "Gohu" "MartianMono" "Monofur" ]; })
+    (nerdfonts.override { fonts = [ "BigBlueTerminal" "FiraCode" "JetBrainsMono" "Gohu" "MartianMono" "Monofur" "UbuntuMono"]; })
   ];
 
   # Enable the OpenSSH daemon.
