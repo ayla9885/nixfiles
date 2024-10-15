@@ -20,9 +20,9 @@
     btop # Resource monitoring
     iotop # IO monitoring
     iftop # Network monitoring
-    lf # Tui file manager
     p7zip
     tree # Show file tree structure
+    wootility # Keyboard customization software
 
     # Utilities
     feh # Image viewer
@@ -118,10 +118,11 @@
         resize_increments = true; # Resize in cell increments
       };
       font.normal = {
-        family = "BigBlueTermPlus Nerd Font Mono";
+        # family = "BigBlueTermPlus Nerd Font Mono";
+        family = "UbuntuMono Nerd Font Mono";
         # family = "Monofur Nerd Font Mono";
         # family = "JetBrainsMono Nerd Font Mono";
-        style = "Regular";
+        style = "Bold";
       };
     };
   };
