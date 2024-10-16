@@ -21,7 +21,6 @@
     iotop # IO monitoring
     iftop # Network monitoring
     p7zip
-    tree # Show file tree structure
     wootility # Keyboard customization software
 
     # Utilities
@@ -63,7 +62,8 @@
   #             #
   
   home.shellAliases = {
-    
+    ls = "lsd";
+    tree = "lsd --tree";
   };
 
   home.sessionVariables = {
@@ -117,12 +117,15 @@
       window = {
         resize_increments = true; # Resize in cell increments
       };
-      font.normal = {
-        # family = "BigBlueTermPlus Nerd Font Mono";
-        family = "UbuntuMono Nerd Font Mono";
-        # family = "Monofur Nerd Font Mono";
-        # family = "JetBrainsMono Nerd Font Mono";
-        style = "Bold";
+      font = {
+        size = 14;
+        normal = {
+          # family = "BigBlueTermPlus Nerd Font Mono";
+          family = "UbuntuMono Nerd Font Mono";
+          # family = "Monofur Nerd Font Mono";
+          # family = "JetBrainsMono Nerd Font Mono";
+          style = "Bold";
+        };
       };
     };
   };
@@ -153,7 +156,7 @@
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
-      monospace = [ "BigBlueTermPlus Nerd Font Propo" ];
+      monospace = [ "UbuntuMono Nerd Font Mono Bold" ];
       # serif = [ "BigBlueTermPlus Nerd Font Propo" ];
     };
   };
