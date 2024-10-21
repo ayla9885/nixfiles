@@ -13,6 +13,7 @@
   networking = {
     networkmanager.enable = true;
     networkmanager.dns = "systemd-resolved"; # Prevent networkmanager from overriding dns server
+    networkmanager.wifi.powersave = false;
   };
   services.resolved = {
     enable = true;
@@ -87,6 +88,9 @@
     git
     greetd.tuigreet
     lsd # Better ls
+
+    # Network driver
+    linuxKernel.packages.linux_zen.rtl8812au
 
     # window managers
     fvwm3
