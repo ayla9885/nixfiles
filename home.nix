@@ -20,6 +20,7 @@
     btop # Resource monitoring
     iotop # IO monitoring
     iftop # Network monitoring
+    speedtest-cli # CLI tool for speedtest.net
     p7zip
     wootility # Keyboard customization software
 
@@ -38,7 +39,6 @@
 
     # Browsers
     firefox
-    palemoon-bin
     librewolf
 
     # Music
