@@ -55,6 +55,8 @@
     # Interpreters / Compilers
     python3Full
     clang
+    rustc
+    cargo
   ];
 
   #             #
