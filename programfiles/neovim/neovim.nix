@@ -21,6 +21,64 @@
         '';
       }
 
+      # Auto-completion
+      {
+        plugin = nvim-cmp;
+        config = ''
+          lua << END
+            require'cmp'.setup({
+              snippet = {
+                expand = function(args)
+                  require('luasnip').lsp_expand(args.body)
+                end,
+              },
+              sources = require'cmp'.config.sources({
+                { name = 'nvim_lsp' },
+                { name = 'luasnip' },
+              }, {
+                { name = 'buffer' },
+              })
+            })
+          END
+        '';
+      }
+
+      {
+        plugin = cmp-nvim-lsp;
+        config = ''
+        lua << END
+
+          require'lspconfig'.rust_analyzer.setup {
+            capabilities = require'cmp_nvim_lsp'.default_capabilities()
+          }
+          require'lspconfig'.nixd.setup {
+            capabilities = require'cmp_nvim_lsp'.default_capabilities()
+          }
+          require'lspconfig'.pylsp.setup {
+            capabilities = require'cmp_nvim_lsp'.default_capabilities()
+          }
+          require'lspconfig'.nushell.setup {
+            capabilities = require'cmp_nvim_lsp'.default_capabilities()
+          }
+        END
+        '';
+      }
+
+      {
+        plugin = nvim-lspconfig;
+      }
+
+      {
+        plugin = cmp_luasnip;
+      }
+
+      # Snippet engine
+      {
+        plugin = luasnip;
+        config = ''
+        '';
+      }
+
       # Debug protocol
       {
         plugin = nvim-dap;
