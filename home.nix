@@ -1,4 +1,4 @@
-{ config, pkgs, nixvim, ... }:
+{ pkgs, ... }:
 
 {
   
@@ -52,16 +52,28 @@
     gimp
     krita
 
+    # Games
+    vintagestory
+
     # Interpreters / Compilers
     python3Full
     clang
+
+    # Rust
     rustc
+    rustfmt
+    rust-analyzer
+    clippy
     cargo
+
+    # LSPs
+    nixd
+    python312Packages.python-lsp-server
   ];
 
-  #             #
-  ### ALIASES ###
-  #             #
+  #                      #
+  ### ALIASES 'N STUFF ### 
+  #                      #
   
   home.shellAliases = {
     ls = "lsd";
@@ -71,6 +83,10 @@
   home.sessionVariables = {
     EDITOR = "nvim";
   };
+
+  home.sessionPath = [
+    "$HOME/.cargo/bin"
+  ];
 
   #             #
   ### CONFIGS ###
@@ -102,6 +118,12 @@
         init.defaultBranch = "main";
         core.editor = "nvim";
       };
+    };
+
+    nushell = {
+      enable = true;
+      configFile.source = ./programfiles/nushell/config.nu;
+      envFile.source = ./programfiles/nushell/env.nu;
     };
 
     fish = {
