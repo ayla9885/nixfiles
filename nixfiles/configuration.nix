@@ -75,7 +75,7 @@
     useDefaultShell = true;
   };
   
-  users.defaultUserShell = pkgs.fish;
+  users.defaultUserShell = pkgs.nushell;
   
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
