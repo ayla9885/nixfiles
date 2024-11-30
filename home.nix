@@ -23,6 +23,8 @@
     speedtest-cli # CLI tool for speedtest.net
     p7zip
     wootility # Keyboard customization software
+    qmk
+    qmk-udev-rules
 
     # Utilities
     feh # Image viewer
@@ -31,8 +33,15 @@
     pavucontrol
     flatpak
     vlc # Media player
+    libreoffice
+    direnv # nix-shell stuff
+    networkmanager-openvpn
+    qbittorrent
+    ffmpeg
+    mako # notifications
 
     # Chat
+    webcord-vencord
     vesktop
     pidgin # IRC client
     abaddon # Non-electron Discord client
@@ -54,6 +63,7 @@
 
     # Games
     vintagestory
+    prismlauncher
 
     # Interpreters / Compilers
     python3Full
@@ -165,7 +175,7 @@
 
     # Librewolf
     librewolf = {
-      enable = true;
+      #enable = true;
       settings = {
         "privacy.donottrackheader.enabled" = true; # Sends websites a "do not track" request
         "privacy.globalprivacycontrol.enabled" = true; # Asks websites to not sell my data

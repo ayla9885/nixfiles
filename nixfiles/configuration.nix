@@ -23,23 +23,8 @@
   };
 
   # Enable sound
-  hardware.pulseaudio = {
-    enable = true;
-    extraConfig = "load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1";
-  };
-
-  # Enable mpd
-  services.mpd = {
-    enable = true;
-    musicDirectory = "/home/ayla/Music";
-    extraConfig = ''
-      audio_output {
-        type "pulse"
-        name "Pulseaudio"
-        server "127.0.0.1"
-      }
-    '';
-  };
+  hardware.pulseaudio.enable = true;
+  services.pipewire.enable = false;
 
   # Set your time zone.
   time.timeZone = "America/Chicago";
@@ -71,7 +56,6 @@
     isNormalUser = true;
     description = "Ayla";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
     useDefaultShell = true;
   };
   
@@ -85,9 +69,9 @@
   environment.systemPackages = with pkgs; [
     # cli utils
     neovim 
+    helix
     git
     greetd.tuigreet
-    lsd # Better ls
 
     # Network driver
     linuxKernel.packages.linux_zen.rtl8812au
@@ -131,8 +115,10 @@
     };
   };
 
-  programs.waybar.enable = true;
+  programs.waybar.enable = false;
+  programs.xwayland.enable = true;
   programs.sway.enable = true;
+  programs.sway.wrapperFeatures.gtk = true;
   #needed to configure sway with home-manager
   security.polkit.enable = true;
 

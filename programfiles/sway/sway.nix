@@ -3,6 +3,7 @@
 {
   wayland.windowManager.sway = {
     enable = true;
+    xwayland = true;
     config = {
 
       #startup = [ { command = "COMMAND"; ];
